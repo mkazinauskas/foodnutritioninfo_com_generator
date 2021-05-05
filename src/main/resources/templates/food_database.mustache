@@ -1,0 +1,25 @@
+{{> header}}
+<h1 class="ui header">Food nutrition database</h1>
+{{>ads/mobile_ad}}
+<div class="ui bulleted list">
+    {{#pages}}
+        <a class="item" href="/foods/{{seoTitle}}.html"
+           alt="Nutrition facts and Information for {{ title }}">{{ title }}</a>
+    {{/pages}}
+</div>
+<div class="ui large buttons">
+    {{#hasPreviousPage}}
+        <a class="ui button" href="/database/foods{{ seoPreviousPage }}.html" alt="More food nutrition database items">Previous
+            page {{previousPage}}</a>
+    {{/hasPreviousPage}}
+    {{#hasPreviousPage}}
+        {{#hasNextPage}}
+            <div class="or"></div>
+        {{/hasNextPage}}
+    {{/hasPreviousPage}}
+    {{#hasNextPage}}
+        <a class="ui button" href="/database/foods-{{ seoNextPage }}.html" alt="More food nutrition database items">Next
+            page {{nextPage}}</a>
+    {{/hasNextPage}}
+</div>
+{{> footer}}

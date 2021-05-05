@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="{{ pageDescription }}">
+    <meta name="keywords" content="{{ pageKeywords }}">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon.png"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    {{> ads/adsense_verification }}
+</head>
+<body>
+<div class="ui stackable menu">
+    <div class="header item"><a alt="Home" href="/">FoodNutritionInfo.com</a></div>
+    <div class="right menu">
+        <a class="item" href="/database/foods.html"><i class="grid leaf icon"></i>Food Database</a>
+        <div class="item">
+            <form action="javascript:void(0);" onSubmit="submitToGoogleSearch()">
+                <div class="ui action left icon input">
+                    <i class="search icon"></i>
+                    <input type="text" id="search-text" placeholder="Enter food name">
+                    <button class="ui button" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="ui container">

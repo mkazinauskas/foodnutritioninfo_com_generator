@@ -1,0 +1,249 @@
+{{> header}}
+<h1 class="ui header">{{ data.title }} ({{ data.servingSize }}) nutritional food value</h1>
+
+<div class="ui cards centered">
+    <div class="card">
+        <div class="content">
+            <div class="header">Nutrient balance indicator for {{ data.title }}</div>
+            <div class="meta">{{ data.servingSize }}</div>
+            <div class="description">
+                <p>Completeness score of {{ data.title }} is <strong>{{ data.nutrientBalance }}</strong>.</p>
+                <p>A Completeness Score between 0 and 100 is a relative indication of how complete the food is with
+                    respect
+                    to these nutrients. Although few (if any) individual foods provide all the essential nutrients, the
+                    Nutrient Balance Indicator and Completeness Score can help you construct meals that are
+                    nutritionally
+                    balanced and complete.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <div class="header">Protein quality for {{ data.title }}</div>
+            <div class="meta">{{ data.servingSize }}</div>
+            <div class="description">
+                <p>Protein quality score of {{ data.title }} is <strong>{{ data.proteinQuality }}</strong>.</p>
+                <p>An Amino Acid Score of 100 or higher indicates a complete or high-quality protein. If the Amino Acid
+                    Score is less than 100, a link is provided to complementary sources of protein. By combining
+                    complementary proteins, you may be able to increase the overall quality of the protein you
+                    consume.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <div class="header">Pros and Cons of {{ data.title }}</div>
+            <div class="meta">{{ data.servingSize }}</div>
+            <div class="description">
+                {{#data.isGood}}
+                    <p><strong>The good:</strong> {{data.good}}</p>
+                {{/data.isGood}}
+                {{#data.isBad}}
+                    <p><strong>The bad:</strong> {{data.bad}}</p>
+                {{/data.isBad}}
+                {{#data.glycemicLoad}}
+                    <p>Glycemic load of {{data.title}} is: <strong>{{.}}</strong></p>
+                    <p>Glycemic load is a way of expressing a food or meal's effect on blood-sugar levels. A typical
+                        target for total Estimated Glycemic Load is 100 or less per day.
+                    </p>
+                {{/data.glycemicLoad}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui segment">
+    <h2>Caloric ratio of {{ data.title }}</h2>
+    <div class="ui horizontal segments">
+        <div class="ui segment">
+            <p><strong>Carbs: </strong>{{data.carbs}}</p>
+        </div>
+        <div class="ui segment">
+            <p><strong>Fats: </strong>{{data.fats}}</p>
+        </div>
+        <div class="ui segment">
+            <p><strong>Protein: </strong>{{data.protein}}</p>
+        </div>
+    </div>
+</div>
+
+{{>ads/mobile_ad}}
+
+<h2 class="ui header">Calories information</h2>
+
+<table class="ui red table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Daily Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#data.nutritionInformation.caloriesInformation}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{dailyValue}}</td>
+        </tr>
+    {{/data.nutritionInformation.caloriesInformation}}
+    </tbody>
+</table>
+
+<h2 class="ui header">Protein and amino acids</h2>
+
+<table class="ui red table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Daily Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#data.nutritionInformation.proteinAndAminoAcids}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{dailyValue}}</td>
+        </tr>
+    {{/data.nutritionInformation.proteinAndAminoAcids}}
+    </tbody>
+</table>
+
+<h2 class="ui header">Carbohydrates</h2>
+
+<table class="ui red table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Daily Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#data.nutritionInformation.carbohydrates}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{dailyValue}}</td>
+        </tr>
+    {{/data.nutritionInformation.carbohydrates}}
+    </tbody>
+</table>
+
+<h2 class="ui header">Vitamins</h2>
+
+<table class="ui red table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Daily Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#data.nutritionInformation.vitamins}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{dailyValue}}</td>
+        </tr>
+    {{/data.nutritionInformation.vitamins}}
+    </tbody>
+</table>
+{{>ads/mobile_ad}}
+<h2 class="ui header">Fats and fatty acids</h2>
+
+<table class="ui red table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Daily Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#data.nutritionInformation.fatsAndFattyAcids}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{dailyValue}}</td>
+        </tr>
+    {{/data.nutritionInformation.fatsAndFattyAcids}}
+    </tbody>
+</table>
+
+<h2 class="ui header">Minerals</h2>
+
+<table class="ui red table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Daily Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#data.nutritionInformation.minerals}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{dailyValue}}</td>
+        </tr>
+    {{/data.nutritionInformation.minerals}}
+    </tbody>
+</table>
+
+<h2 class="ui header">Sterols</h2>
+
+<table class="ui red table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Daily Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#data.nutritionInformation.sterols}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{dailyValue}}</td>
+        </tr>
+    {{/data.nutritionInformation.sterols}}
+    </tbody>
+</table>
+
+<h2 class="ui header">Other</h2>
+
+<table class="ui red table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Daily Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#data.nutritionInformation.other}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{dailyValue}}</td>
+        </tr>
+    {{/data.nutritionInformation.other}}
+    </tbody>
+</table>
+
+<h4>Last 50 searches</h4>
+<p>
+{{#lastSearches}}
+    <div class="ui horizontal label">
+        <a class="item" href="/foods/{{seoTitle}}.html"
+           alt="Nutrition facts and Information for {{ title }}">{{ title }}</a>
+    </div>
+{{/lastSearches}}
+</p>
+{{> footer}}
